@@ -1,7 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Cookie, type: :model do
-  context 'validations' do
+  context "#name" do
+    it "prints the name of cookie" do
+      cookie = build(:cookie)
+      expect(cookie.name).to eq("madeleine")
+    end
+  end
+
+  context "validations" do
     it "ensures the presence of name" do
       cookie = Cookie.new(name: "").save
       expect(cookie).to eq(false)
